@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-myYellow-100: #fbfaf3;
+  --color-myYellow-200: #f7ead7;
+  --color-myGreen-100: #d2ecea;
+  --color-myGreen-200: #4cb5ae;
+  --color-myOrange-200: #ff7043;
+  --color-myStone-200: #364751;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--color-myStone-200);
+}
+
+/* html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+} */
+
+.htmlContent {
+  overflow-wrap: break-word;
+  overflow-x: auto;
+
+  iframe {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  ul {
+    list-style: disc;
+
+    li {
+      margin-inline-start: 1.25rem;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+
+    li {
+      margin-inline-start: 1rem;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* fix hover in mobile */
+@custom-variant hover (&:hover);
+
+@layer {
+  .myContainer {
+    @apply container px-4 mx-auto;
+  }
+
+  .sectionPadding {
+    @apply py-8 lg:py-14;
+  }
+
+  .mainBtn {
+    @apply bg-myGreen-200 text-white font-semibold lg:text-lg capitalize py-2 px-6 rounded-lg cursor-pointer
+    flex items-center justify-center gap-2 border border-myGreen-200 shadow-lg transition-all duration-300;
+
+    svg {
+      @apply text-2xl lg:text-3xl;
+    }
+
+    &.orange {
+      @apply bg-myOrange-200 border-myOrange-200;
+
+      &.light {
+        @apply bg-transparent text-myOrange-200;
+      }
+    }
+
+    &:hover,
+    &.active {
+      @apply brightness-90;
+    }
+  }
+
+  .navLink {
+    @apply text-lg duration-300 relative capitalize;
+
+    &::after {
+      @apply content-[''] absolute h-2 w-2 rounded-full bg-myGreen-200 
+      bottom-1/2 translate-y-1/2 -right-4 lg:-bottom-1 lg:left-1/2 lg:-translate-x-1/2 opacity-0 duration-300;
+    }
+
+    &::before {
+      @apply content-[''] absolute h-2 w-2 rounded-full bg-myGreen-200 
+      bottom-1/2 translate-y-1/2 -left-4 lg:-bottom-1 lg:left-1/2 lg:-translate-x-1/2 opacity-0 duration-300;
+    }
+
+    &.active,
+    &:hover {
+      @apply text-myGreen-200;
+
+      &::after,
+      &::before {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  .footerLinksTitle {
+    /* @apply font-bold text-xl lg:text-3xl relative;
+
+    &::after {
+      @apply hidden lg:block content-[''] absolute h-1 w-6 bg-light-red -top-2 -start-3;
+    }
+
+    &::before {
+      @apply content-[''] absolute h-full lg:h-6 w-0.5 lg:w-1 bg-light-red -start-2 lg:-top-2 lg:-start-3;
+    } */
+  }
+}
