@@ -9,7 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="space-y-4">
             <div className="bg-white p-4 rounded-lg w-fit">
-              <img src={logoImg} alt="Logo" />
+              <img
+                src={logoImg}
+                alt="Logo"
+                // className="brightness-0 invert-100"
+              />
             </div>
 
             <div>
