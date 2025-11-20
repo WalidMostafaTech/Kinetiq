@@ -7,6 +7,7 @@ const ContactUs = () => {
     <HomeSectionsContactUs />
   </section>
   );
-};
+}; 
+
 
 export default ContactUs;
