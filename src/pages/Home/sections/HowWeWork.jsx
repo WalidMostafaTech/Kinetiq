@@ -1,49 +1,54 @@
 import SectionTitle from "../../../components/common/SectionTitle";
-import calendarIcon from "../../../assets/icons/calendar 4.png";
-import checkListIcon from "../../../assets/icons/check-list 2.png";
-import personalizedMedicineIcon from "../../../assets/icons/personalized-medicine 2.png";
+import { useQuery } from "@tanstack/react-query";
+import { getHowWeWork } from "../../../apiServices/home";
+const HowWeWorkSkeleton = () => {
+  return (
+    <section className="sectionPadding container">
+      <SectionTitle title="Let’s See How We Work" />
+      <div className="h-5 w-3/4 md:w-2/3 lg:w-1/2 bg-gray-200 rounded animate-pulse mt-2 mb-6" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="p-4 flex flex-col items-center gap-4 text-center">
+            <div className="flex items-center justify-center p-6 rounded-full bg-gray-100 shadow-md animate-pulse w-24 h-24" />
+            <div className="h-6 bg-gray-200 rounded w-2/3 animate-pulse" />
+            <div className="h-4 bg-gray-200 rounded w-5/6 animate-pulse" />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
-const howWeWorkList = [
-  {
-    title: "Book a session",
-    description:
-      "Choose your preferred time wether it’s a home visit or at clinic.",
-    icon: calendarIcon,
-  },
-  {
-    title: "Assessment and Evaluation",
-    description:
-      "A professional full check- up to identify pain points, limitations, and therapy needs.",
-    icon: checkListIcon,
-  },
-  {
-    title: "Personalized therapy plan",
-    description:
-      "We design a step-by-step plan that fits your lifestyle, helping you recover safely and steadily.",
-    icon: personalizedMedicineIcon,
-  },
-];
 const HowWeWork = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["how-we-work"],
+    queryFn: getHowWeWork,
+  });
+
+  if (isLoading) return <HowWeWorkSkeleton />;
+  if (isError) return null;
+
+  const subTitle = data?.main_title || undefined;
+  const items = Array.isArray(data?.work_processes) ? data.work_processes : [];
+
   return (
     <section className="sectionPadding container">
       <SectionTitle
         title="Let’s See How We Work"
-        subTitle={
-          "Our process is built around your needs, ensuring clarity, care, and confidence every step of the way."
-        }
+        subTitle={subTitle}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {howWeWorkList.map((item, index) => (
+        {items.map((item) => (
           <div
-            key={index}
+            key={item.id}
             className="p-4 flex flex-col items-center gap-4 text-center"
           >
             <div className="flex items-center justify-center p-4 rounded-full bg-myGreen-100 shadow-md">
-              <img src={item.icon} alt={item.title} width="100%" />
+              <img src={item.icon} alt={item.title} width="100%" className="max-w-20 p-2" />
             </div>
             <h3 className="text-2xl font-semibold">{item.title}</h3>
-            <p>{item.description}</p>
+            <p>{item.paragraph}</p>
           </div>
         ))}
       </div>

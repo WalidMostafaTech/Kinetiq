@@ -5,32 +5,26 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./Testimonials.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-const testimonials = [
-  {
-    id: 1,
-    text: "The specialist listened to me well and explained the exercises to me in a simple and easy way.",
-    name: "Noran Walid",
-    role: "Patient",
-    avatar: "https://i.pravatar.cc/50?img=1",
-  },
-  {
-    id: 2,
-    text: "The specialist listened to me well and explained the exercises to me in a simple and easy way.",
-    name: "Noran Walid",
-    role: "Patient",
-    avatar: "https://i.pravatar.cc/50?img=1",
-  },
-  {
-    id: 3,
-    text: "The specialist listened to me well and explained the exercises to me in a simple and easy way.",
-    name: "Noran Walid",
-    role: "Patient",
-    avatar: "https://i.pravatar.cc/50?img=1",
-  },
-];
+import LoadingPage from "../../../../components/Loading/LoadingPage";
+import { useQuery } from "@tanstack/react-query";
+import { getTestimonials } from "../../../../apiServices/home";
 
 const Testimonials = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["testimonials"],
+    queryFn: getTestimonials,
+  });
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
+  if (isError) {
+    return null;
+  }
+
+  const testimonials = Array.isArray(data) ? data : [];
+
   return (
     <section className="bg-myGreen-100 py-12 my-8 Testimonials">
       <div className="container grid grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8 overflow-hidden">
@@ -64,10 +58,13 @@ const Testimonials = () => {
             {testimonials.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="testimonial-card bg-white rounded-xl shadow-md p-6 py-12 h-full transition-transform duration-300">
-                  <p className="text-gray-700 mb-4 pb-4 border-b border-gray-300">{item.text}</p>
+                  <div
+                    className="text-gray-700 mb-4 pb-4 border-b border-gray-300"
+                    dangerouslySetInnerHTML={{ __html: item.content || "" }}
+                  />
                   <div className="flex items-center gap-2">
                     <img
-                      src={item.avatar}
+                      src={item.image_url}
                       alt={item.name}
                       className="w-10 h-10 rounded-full"
                     />

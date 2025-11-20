@@ -5,8 +5,23 @@ import Testimonials from "./sections/Testimonials/Testimonials";
 import HowWeWork from "./sections/HowWeWork";
 import LatestBlogsAndArticles from "./sections/LatestBlogsAndArticles";
 import Services from "./sections/Services";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import ContactUs from "./sections/ContactUs";
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location.hash]);
+
   return (
     <article>
       <Hero />
@@ -15,6 +30,7 @@ const Home = () => {
       <Services />
       <Testimonials />
       <HowWeWork />
+      <ContactUs />
       <LatestBlogsAndArticles />
     </article>
   );

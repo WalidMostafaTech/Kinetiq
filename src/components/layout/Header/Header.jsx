@@ -3,17 +3,35 @@ import { HiMenu } from "react-icons/hi";
 import logoImg from "../../../assets/images/logo.png";
 import { GoArrowRight } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [activeNav, setActiveNav] = useState(false);
   const headerRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const linksList = [
-    { name: "Home", path: "/" },
-    { name: "Contact Us", path: "/contact-us" },
-    { name: "About Us", path: "/about-us" },
+    { name: "Home", path: "#Home" },
+    { name: "Contact Us", path: "#contact-us"},
+    { name: "About Us", path: "#about-us" },
   ];
+
+  const handleNavClick = (e, link) => {
+    if (link.path.startsWith("#")) {
+      e.preventDefault();
+      setActiveNav(false);
+      const targetId = link.path.slice(1);
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        navigate(`/${link.path}`);
+      }
+      return;
+    }
+    setActiveNav(false);
+  };
 
   return (
     <header
@@ -49,15 +67,23 @@ const Header = () => {
             <NavLink
               to={link.path}
               key={link.name}
-              className="navLink"
-              onClick={() => setActiveNav(false)}
+              className={({ isActive }) => {
+                const isHashActive =
+                  link.path.startsWith("#") &&
+                  location.pathname === "/" &&
+                  location.hash === link.path;
+                return `navLink ${isActive || isHashActive ? "active-old" : ""}`;
+              }}
+              onClick={(e) => handleNavClick(e, link)}
             >
               {link.name}
             </NavLink>
           ))}
         </nav>
 
-        <Link to="/contact-us" className="mainBtn">
+        <Link to="/#contact-us" className="mainBtn"
+          onClick={(e) => handleNavClick(e, { path: "#contact-us" })}
+        >
           Join Us <GoArrowRight />
         </Link>
       </div>
