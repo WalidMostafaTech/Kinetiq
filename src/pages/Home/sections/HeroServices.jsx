@@ -61,15 +61,15 @@ const HeroServices = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-16 w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-16 w-full"
         >
           {items.map((item) => (
             <motion.div
               key={item.id}
               variants={card}
-              className="p-4 rounded-md bg-myYellow-200 even:bg-myOrange-200 even:text-white text-myStone-200 flex flex-col items-center gap-2 even:xl:-translate-y-20"
+              className="p-4 rounded-md bg-myYellow-200 even:bg-myOrange-200 even:text-white text-black flex flex-col items-center gap-2 even:xl:-translate-y-20"
             >
-              <img src={item.icon} alt={item.title} />
+              <img src={item.icon} alt={item.title}  className="w-26 lg:w-32" />
               <p className="text-lg font-medium">{item.title}</p>
             </motion.div>
           ))}

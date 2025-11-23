@@ -62,10 +62,6 @@ body {
 @custom-variant hover (&:hover);
 
 @layer {
-  .myContainer {
-    @apply container px-4 mx-auto;
-  }
-
   .sectionPadding {
     @apply py-8 lg:py-14;
   }
@@ -115,24 +111,10 @@ body {
       }
     }
   }
-
-  .footerLinksTitle {
-    /* @apply font-bold text-xl lg:text-3xl relative;
-
-    &::after {
-      @apply hidden lg:block content-[''] absolute h-1 w-6 bg-light-red -top-2 -start-3;
-    }
-
-    &::before {
-      @apply content-[''] absolute h-full lg:h-6 w-0.5 lg:w-1 bg-light-red -start-2 lg:-top-2 lg:-start-3;
-    } */
-  }
 }
-
-
 
 .scroll-smooth {
   scroll-behavior: smooth;
-  scroll-padding-top:80px;
+  scroll-padding-top: 80px;
   scroll-margin-top: 80px;
 }

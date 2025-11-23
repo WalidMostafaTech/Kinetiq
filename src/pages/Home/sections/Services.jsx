@@ -29,8 +29,8 @@ const Services = () => {
             key={item.id ?? index}
             className="bg-myGreen-100 p-4 rounded-lg shadow-lg flex flex-col items-center gap-4 text-center"
           >
-            <div className="flex items-center justify-center p-4 rounded-full bg-myGreen-200 shadow-md">
-              <img src={item.icon} alt={item.title} width="100%" />
+            <div className="flex items-center justify-center p-6 rounded-full bg-myGreen-200 shadow-md">
+              <img src={item.icon} alt={item.title} className="w-18" />
             </div>
             <h3 className="text-2xl font-semibold">{item.title}</h3>
             <p>{item.paragraph}</p>

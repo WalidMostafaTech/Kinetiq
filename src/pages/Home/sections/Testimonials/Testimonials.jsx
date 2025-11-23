@@ -27,7 +27,7 @@ const Testimonials = () => {
 
   return (
     <section className="bg-myGreen-100 py-12 my-8 Testimonials">
-      <div className="container grid grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8 overflow-hidden">
+      <div className="container grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 overflow-hidden">
         <div className="content-center">
           <SectionTitle title="What patients say about Kinetiq" />
           <div className="flex gap-3 mx-auto w-max mt-4">
@@ -41,7 +41,7 @@ const Testimonials = () => {
         </div>
 
         {/* Swiper */}
-        <div className="xl:col-span-2">
+        <div className="lg:col-span-2">
           <Swiper
             modules={[Navigation]}
             navigation={{

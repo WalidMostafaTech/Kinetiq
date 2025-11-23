@@ -8,6 +8,7 @@ import Services from "./sections/Services";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ContactUs from "./sections/ContactUs";
+import DownloadAppBanner from "./sections/DownloadAppBanner";
 
 const Home = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const Home = () => {
       <HowWeWork />
       <ContactUs />
       <LatestBlogsAndArticles />
+      <DownloadAppBanner />
     </article>
   );
 };

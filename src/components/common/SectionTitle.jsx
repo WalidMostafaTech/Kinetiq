@@ -5,7 +5,13 @@ const SectionTitle = ({ title, subTitle, position = "center" }) => {
         position === "start" ? "lg:text-start" : "text-center"
       }`}
     >
-      <h2 className="text-3xl lg:text-5xl font-bold">{title}</h2>
+      <h2
+        className={`text-3xl lg:text-4xl font-bold w-fit mx-auto
+    bg-gradient-to-l from-myOrange-200 to-myGreen-200 bg-clip-text text-transparent
+  `}
+      >
+        {title}
+      </h2>
       {subTitle && (
         <p
           className={`lg:text-xl text-center mt-2 max-w-2xl ${
