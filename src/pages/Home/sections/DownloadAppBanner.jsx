@@ -35,10 +35,10 @@ const DownloadAppBanner = () => {
             </h2>
 
             <p className="text-white max-w-lg text-sm">
-              Search, compare, and easily book medical consultations with the
-              largest doctors' network in Egypt. Order your medicines and get
-              them delivered within 60 minutes. Track your daily steps and earn
-              points when you reach your daily goal.
+              Easily book certified physical therapy home visits anytime,
+              anywhere. Get personalized care from trusted therapists, track
+              your recovery progress, and stay on top of your health—all from
+              the comfort of your home.
             </p>
 
             <div className="flex flex-wrap gap-4 w-full">

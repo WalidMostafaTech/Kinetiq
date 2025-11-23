@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ContactUs from "./sections/ContactUs";
 import DownloadAppBanner from "./sections/DownloadAppBanner";
+import WhyChooseUs from "./sections/WhyChooseUs";
+import HomeBanner from "./sections/HomeBanner";
 
 const Home = () => {
   const location = useLocation();
@@ -29,8 +31,10 @@ const Home = () => {
       <HeroServices />
       <About />
       <Services />
+      <WhyChooseUs />
       <Testimonials />
       <HowWeWork />
+      <HomeBanner />
       <ContactUs />
       <LatestBlogsAndArticles />
       <DownloadAppBanner />
