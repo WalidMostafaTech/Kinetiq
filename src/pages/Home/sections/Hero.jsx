@@ -9,6 +9,7 @@ import {
 } from "../../../animations/heroV";
 import { useQuery } from "@tanstack/react-query";
 import { getWebBanners } from "../../../apiServices/home";
+import { Link } from "react-router-dom";
 
 const HeroSkeleton = () => {
   return (
@@ -91,12 +92,9 @@ const Hero = () => {
               <a href={hero?.link || "#"} className="mainBtn orange">
                 {hero?.button_text || "download now"}
               </a>
-              <a
-                href={hero?.secondary_link || "#"}
-                className="mainBtn orange light"
-              >
+              <Link to={"/appointment"} className="mainBtn orange light">
                 {hero?.secondary_button_text || "make appointment"}
-              </a>
+              </Link>
             </motion.div>
           </div>
 

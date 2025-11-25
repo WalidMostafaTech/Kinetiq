@@ -4,6 +4,7 @@ import { MdDateRange } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { useQuery } from "@tanstack/react-query";
 import { getBlogs } from "../../../apiServices/home";
+import { motion } from "framer-motion";
 
 const BlogsSkeleton = () => {
   return (
@@ -31,6 +32,15 @@ const BlogsSkeleton = () => {
   );
 };
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
 const LatestBlogsAndArticles = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["blogs"],
@@ -47,10 +57,23 @@ const LatestBlogsAndArticles = () => {
       <SectionTitle title="Latest Blogs & Articles" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {blogs.map((item) => (
-          <div key={item.id} className="bg-myYellow-200 shadow-xl">
+        {blogs.map((item, index) => (
+          <motion.div
+            key={item.id}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={cardVariants}
+            className="bg-myYellow-200 shadow-xl overflow-hidden rounded-xl"
+          >
             <div>
-              <img src={item.main_image_url} alt={item.title} width="100%" />
+              <img
+                src={item.main_image_url}
+                alt={item.title}
+                width="100%"
+                className="transition-transform duration-300 hover:scale-105"
+              />
             </div>
 
             <div className="p-4 space-y-4">
@@ -77,11 +100,18 @@ const LatestBlogsAndArticles = () => {
                 <GoArrowRight className="text-3xl group-hover:translate-x-3 duration-200" />
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <button className="mainBtn mt-8 mx-auto">More Articles</button>
+      <motion.button
+        whileHover={{ scale: 1.05, boxShadow: "0px 8px 15px rgba(0,0,0,0.2)" }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
+        className="mainBtn mt-8 mx-auto block"
+      >
+        More Articles
+      </motion.button>
     </section>
   );
 };

@@ -1,6 +1,12 @@
 import { useState } from "react";
 import SectionTitle from "../../../components/common/SectionTitle";
 import { postContactUs } from "../../../apiServices/home";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const ContactUs = () => {
   const [form, setForm] = useState({
@@ -35,14 +41,25 @@ const ContactUs = () => {
   };
 
   return (
-    <section id="contact-us" className="sectionPadding container scroll-smooth" >
+    <motion.section
+      id="contact-us"
+      className="sectionPadding container scroll-smooth"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+    >
       <SectionTitle
         title="Contact Us"
         subTitle="We’re here to help. Send us a message and we’ll get back to you."
       />
 
-      <div className="max-w-3xl mx-auto">
-       
+      <motion.div
+        className="max-w-3xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <form
           onSubmit={handleSubmit}
           className="bg-myGreen-100 rounded-xl shadow-lg p-6 lg:p-8 space-y-5"
@@ -113,30 +130,36 @@ const ContactUs = () => {
             />
           </div>
 
-
           {successMsg && (
-          <div className="mb-4 rounded-md bg-green-100 text-green-800 px-4 py-3 text-start">
-            {successMsg}
-          </div>
-        )}
-        {errorMsg && (
-          <div className="mb-4 rounded-md bg-red-100 text-red-800 px-4 py-3 text-start">
-            {errorMsg}
-          </div>
-        )}
-
-
+            <div className="mb-4 rounded-md bg-green-100 text-green-800 px-4 py-3 text-start">
+              {successMsg}
+            </div>
+          )}
+          {errorMsg && (
+            <div className="mb-4 rounded-md bg-red-100 text-red-800 px-4 py-3 text-start">
+              {errorMsg}
+            </div>
+          )}
 
           <div className="text-center">
-            <button type="submit" className="mainBtn" disabled={submitting}>
+            <motion.button
+              type="submit"
+              className="mainBtn"
+              disabled={submitting}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 8px 15px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
               {submitting ? "Sending..." : "Send Message"}
-            </button>
+            </motion.button>
           </div>
         </form>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
 export default ContactUs;
-

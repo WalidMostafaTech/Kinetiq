@@ -29,12 +29,12 @@ const Home = () => {
     <article>
       <Hero />
       <HeroServices />
-      <About />
       <Services />
+      <HomeBanner />
+      <About />
       <WhyChooseUs />
       <Testimonials />
       <HowWeWork />
-      <HomeBanner />
       <ContactUs />
       <LatestBlogsAndArticles />
       <DownloadAppBanner />
