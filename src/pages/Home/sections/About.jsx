@@ -54,7 +54,7 @@ const About = () => {
     <section className="sectionPadding container scroll-smooth" id="about-us">
       <SectionTitle title="About Us" position="start" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {aboutList.map((item, index) => (
           <motion.div
             key={item.id ?? index}
@@ -70,7 +70,7 @@ const About = () => {
                 after:content-[''] after:absolute after:top-1/2 after:left-0 
                 after:translate-x-1/3 after:-translate-y-1/2 
                 after:w-14 after:h-14 after:rounded-full after:bg-gray-500/20 after:z-0
-                group-hover:after:scale-1500 group-hover:after:bg-myOrange-200 after:duration-500"
+                group-hover:after:scale-2000 group-hover:after:bg-myOrange-200 after:duration-500"
             >
               <span className="relative z-10">0{index + 1}</span>
             </div>

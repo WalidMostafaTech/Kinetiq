@@ -33,7 +33,7 @@ const Services = () => {
     <section className="sectionPadding container">
       <SectionTitle title="Find Out More About Our Services" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {servicesList.map((item, index) => (
           <motion.div
             key={item.id ?? index}
@@ -44,11 +44,7 @@ const Services = () => {
             variants={cardVariants}
             className="bg-myGreen-100 p-4 rounded-lg shadow-lg flex flex-col items-center gap-4 text-center cursor-pointer group"
           >
-            <div
-              whileHover={{ rotate: 8 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="flex items-center justify-center p-6 rounded-full bg-myGreen-200 shadow-md group-hover:rotate-12 duration-300"
-            >
+            <div className="flex items-center justify-center p-6 rounded-full bg-myGreen-200 shadow-md group-hover:rotate-12 duration-300">
               <img src={item.icon} alt={item.title} className="w-16" />
             </div>
 
