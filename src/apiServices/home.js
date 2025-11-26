@@ -47,3 +47,13 @@ export const postContactUs = async (payload) => {
   console.log(data);
   return data?.data || {};
 };
+
+export const postJoinRequest = async (payload) => {
+  const { data } = await api.post("/join-request", payload, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  console.log(data);
+  return data?.data || {};
+};

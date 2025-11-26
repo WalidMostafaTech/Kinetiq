@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
 import img from "../../../assets/images/bg.jpg";
 import { motion } from "framer-motion";
+
+const MotionLink = motion(Link);
 
 const HomeBanner = () => {
   return (
@@ -13,10 +16,10 @@ const HomeBanner = () => {
       }}
       className="bg-cover bg-center bg-no-repeat h-[40vh] lg:h-[60vh]"
     >
-      <div className="bg-black/40 w-full h-full p-4 flex flex-col items-center justify-center gap-12">
+      <div className="bg-gradient-to-r from-myGreen-200 to-black/40 w-full h-full p-4 flex flex-col items-center justify-center gap-12">
         {/* BUTTON */}
-        <motion.a
-          href="#"
+        <MotionLink
+          to="/join-us"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -24,7 +27,7 @@ const HomeBanner = () => {
           className="text-myGreen-200 bg-white text-2xl min-w-[200px] text-center font-bold py-2 px-4 rounded-lg"
         >
           Join Now
-        </motion.a>
+        </MotionLink>
 
         {/* TITLE */}
         <motion.h2
