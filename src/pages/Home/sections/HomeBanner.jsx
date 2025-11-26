@@ -14,9 +14,9 @@ const HomeBanner = () => {
         backgroundImage: `url(${img})`,
         fontFamily: "Cairo, sans-serif",
       }}
-      className="bg-cover bg-center bg-no-repeat h-[40vh] lg:h-[60vh]"
+      className="bg-cover bg-center bg-no-repeat h-[60vh] lg:h-[80vh]"
     >
-      <div className="bg-gradient-to-r from-myGreen-200 to-black/40 w-full h-full p-4 flex flex-col items-center justify-center gap-12">
+      <div className="bg-gradient-to-r from-myGreen-200 via-myGreen-200/90 to-black/40 w-full h-full p-4 flex flex-col items-center justify-center gap-6 lg:gap-12">
         {/* BUTTON */}
         <MotionLink
           to="/join-us"
