@@ -6,7 +6,7 @@ import { MdDateRange } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -68,7 +68,8 @@ const LatestBlogsAndArticles = () => {
         variants={cardVariants}
       >
         <Swiper
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           navigation
           spaceBetween={20}
           slidesPerView={1}

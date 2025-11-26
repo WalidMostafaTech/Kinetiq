@@ -25,7 +25,7 @@ const HomeBanner = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-white text-2xl md:text-4xl font-bold text-start md:text-center max-w-4xl leading-relaxed pt-40"
         >
-          Join El-Esbatelia doctors and get our services through the website and
+          Join Kinetiq doctors and get our services through the website and
           the mobile application.
         </motion.h2>
 
