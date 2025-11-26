@@ -1,17 +1,25 @@
 import logoImg from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import { FiFacebook, FiLinkedin } from "react-icons/fi";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaInstagram } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
-  const footerLinks = [
+  const Links1 = [
     {
       title: "Pages",
       links: [
         { name: "Home", url: "/" },
         { name: "About us", url: "/about-us" },
         { name: "Contact us", url: "/contact-us" },
+      ],
+    },
+  ];
+  const Links2 = [
+    {
+      title: "Quick Links",
+      links: [
+        { name: "Appointment", url: "/appointment" },
+        { name: "join us", url: "/join-us" },
       ],
     },
   ];
@@ -22,13 +30,12 @@ const Footer = () => {
       <ul className="space-y-1">
         {links.map((link, index) => (
           <li key={index}>
-            <a
-              href={link.url}
-              target="_blank"
+            <Link
+              to={link.url}
               className="hover:text-myOrange-200 duration-200 text-sm font-semibold"
             >
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -51,11 +58,15 @@ const Footer = () => {
       </div>
 
       <div className="container sectionPadding relative">
-        <div className="flex flex-col md:flex-row flex-wrap md:items-center justify-evenly gap-12">
+        <div className="flex flex-col lg:flex-row flex-wrap justify-between gap-12">
           <div className="space-y-4">
-            <img src={logoImg} alt="Logo" className="brightness-0 invert-100 md:w-36" />
+            <img
+              src={logoImg}
+              alt="Logo"
+              className="brightness-0 invert-100 md:w-36"
+            />
 
-            <div>
+            <div className="max-w-sm">
               <h3 className="text-2xl font-semibold mb-2">
                 Reliable service for better care
               </h3>
@@ -64,33 +75,38 @@ const Footer = () => {
 
             <div className="flex items-center gap-4">
               <a
-                href="#"
-                className="text-xl hover:text-myOrange-200 duration-200"
+                target="_blank"
+                href="https://www.facebook.com/profile.php?id=61581750415372"
+                className="text-2xl hover:text-myOrange-200 duration-200"
               >
                 <FiFacebook />
               </a>
               <a
-                href="#"
-                className="text-xl hover:text-myOrange-200 duration-200"
-              >
-                <RiTwitterXFill />
-              </a>
-              <a
-                href="#"
-                className="text-xl hover:text-myOrange-200 duration-200"
+                target="_blank"
+                href="https://www.instagram.com/kinetiq.egy?igsh=MWxsd3lyMzhubDFzbg=="
+                className="text-2xl hover:text-myOrange-200 duration-200"
               >
                 <FaInstagram />
               </a>
               <a
-                href="#"
-                className="text-xl hover:text-myOrange-200 duration-200"
+                target="_blank"
+                href="https://www.tiktok.com/@kinetiq.egy?_r=1&_t=ZS-91inPpa546L"
+                className="text-2xl hover:text-myOrange-200 duration-200"
               >
-                <FiLinkedin />
+                <FaTiktok />
               </a>
             </div>
           </div>
 
-          {footerLinks.map((section, index) => (
+          {Links1.map((section, index) => (
+            <FooterComponent
+              key={index}
+              title={section.title}
+              links={section.links}
+            />
+          ))}
+
+          {Links2.map((section, index) => (
             <FooterComponent
               key={index}
               title={section.title}
@@ -100,7 +116,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center text-sm p-4 border-t border-gray-200 flex flex-col lg:flex-row items-center justify-evenly gap-4 relative">
+      <div className="container text-center text-sm py-4 border-t border-gray-200 flex flex-col lg:flex-row items-center justify-between gap-4 relative">
         <p>Kinetiq © 2025 | All rights reserved.</p>
 
         <div>
