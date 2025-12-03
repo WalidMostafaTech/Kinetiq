@@ -13,7 +13,7 @@ const Header = () => {
 
   const linksList = [
     { name: "Home", path: "#Home" },
-    { name: "Contact Us", path: "#contact-us"},
+    { name: "Contact Us", path: "#contact-us" },
     { name: "About Us", path: "#about-us" },
   ];
 
@@ -72,7 +72,9 @@ const Header = () => {
                   link.path.startsWith("#") &&
                   location.pathname === "/" &&
                   location.hash === link.path;
-                return `navLink ${isActive || isHashActive ? "active-old" : ""}`;
+                return `navLink ${
+                  isActive || isHashActive ? "active-old" : ""
+                }`;
               }}
               onClick={(e) => handleNavClick(e, link)}
             >
@@ -81,8 +83,10 @@ const Header = () => {
           ))}
         </nav>
 
-        <Link to="/#contact-us" className="mainBtn"
-          onClick={(e) => handleNavClick(e, { path: "#contact-us" })}
+        <Link
+          to="/join-us"
+          className="mainBtn"
+          onClick={(e) => handleNavClick(e, { path: "join-us" })}
         >
           Join Us <GoArrowRight />
         </Link>

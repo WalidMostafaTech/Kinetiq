@@ -46,7 +46,11 @@ const Appointment = () => {
     <section className="w-full max-w-4xl mx-auto pagePadding p-4">
       <SectionTitle title="Book An Appointment" />
 
-      <form
+      <motion.form
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         onSubmit={handleSubmit}
         className="bg-myGreen-100 rounded-xl shadow-lg p-6 lg:p-8 space-y-5"
       >
@@ -120,19 +124,9 @@ const Appointment = () => {
         </div>
 
         <div className="text-center">
-          <motion.button
-            type="submit"
-            className="mainBtn"
-            disabled={isPending}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 8px 15px rgba(0,0,0,0.2)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
+          <button type="submit" className="mainBtn" disabled={isPending}>
             {isPending ? "Booking..." : "Book Appointment"}
-          </motion.button>
+          </button>
         </div>
 
         {successMsg && (
@@ -146,7 +140,7 @@ const Appointment = () => {
             {errorMsg}
           </div>
         )}
-      </form>
+      </motion.form>
     </section>
   );
 };

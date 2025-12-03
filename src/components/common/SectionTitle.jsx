@@ -1,6 +1,12 @@
+import { motion } from "framer-motion";
+
 const SectionTitle = ({ title, subTitle, position = "center" }) => {
   return (
-    <hgroup
+    <motion.hgroup
+      initial={{ opacity: 0, scale: 0.8, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       className={`mb-4 lg:mb-10 ${
         position === "start" ? "lg:text-start" : "text-center"
       }`}
@@ -21,7 +27,7 @@ const SectionTitle = ({ title, subTitle, position = "center" }) => {
           {subTitle}
         </p>
       )}
-    </hgroup>
+    </motion.hgroup>
   );
 };
 

@@ -123,14 +123,7 @@ const LatestBlogsAndArticles = () => {
         </Swiper>
       </motion.div>
 
-      <motion.button
-        whileHover={{ scale: 1.05, boxShadow: "0px 8px 15px rgba(0,0,0,0.2)" }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }}
-        className="mainBtn mt-8 mx-auto block"
-      >
-        More Articles
-      </motion.button>
+      <button className="mainBtn mt-8 mx-auto block">More Articles</button>
     </section>
   );
 };

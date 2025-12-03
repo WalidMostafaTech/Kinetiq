@@ -142,19 +142,9 @@ const ContactUs = () => {
           )}
 
           <div className="text-center">
-            <motion.button
-              type="submit"
-              className="mainBtn"
-              disabled={submitting}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 8px 15px rgba(0,0,0,0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-            >
+            <button type="submit" className="mainBtn" disabled={submitting}>
               {submitting ? "Sending..." : "Send Message"}
-            </motion.button>
+            </button>
           </div>
         </form>
       </motion.div>

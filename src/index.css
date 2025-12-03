@@ -88,7 +88,7 @@ body {
 
     &:hover,
     &.active {
-      @apply brightness-90;
+      @apply brightness-90 scale-105;
     }
   }
 
