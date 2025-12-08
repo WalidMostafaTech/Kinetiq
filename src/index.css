@@ -97,7 +97,7 @@ body {
 
     &::after {
       @apply content-[''] absolute h-2 w-2 rounded-full bg-myGreen-200 
-      bottom-1/2 translate-y-1/2 -right-4 lg:-bottom-1 lg:left-1/2 lg:-translate-x-1/2 opacity-0 duration-300;
+      bottom-1/2 translate-y-1/2 -right-4 lg:-bottom-1 lg:left-1/2 lg:-translate-x-1/2 opacity-0 duration-300 lg:hidden;
     }
 
     &::before {

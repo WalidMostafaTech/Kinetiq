@@ -35,9 +35,9 @@ const Home = () => {
       <WhyChooseUs />
       <Testimonials />
       <HowWeWork />
-      <ContactUs />
-      <LatestBlogsAndArticles />
       <DownloadAppBanner />
+      <LatestBlogsAndArticles />
+      <ContactUs />
     </article>
   );
 };

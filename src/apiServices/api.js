@@ -1,4 +1,5 @@
 import axios from "axios";
+import { store } from "../store/store";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -10,6 +11,8 @@ const api = axios.create({
     Accept: "application/json",
     "X-Nonce": import.meta.env.VITE_X_NONCE,
     "X-Signature": import.meta.env.VITE_X_SIGNATURE,
+    lang: store.getState().language.lang || "en",
   },
 });
+
 export default api;

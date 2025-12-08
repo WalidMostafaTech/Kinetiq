@@ -11,8 +11,11 @@ const fadeUp = {
 
 const DownloadAppBanner = () => {
   return (
-    <section className="w-full p-4 max-w-5xl mx-auto my-16">
-      <div className="bg-[#01ae9e] rounded-lg relative overflow-hidden">
+    <section
+      className="w-full p-4 bg-[#01ae9e] my-16 relative"
+      id="download-app"
+    >
+      <div className="bg-[#01ae9e] rounded-lg overflow-hidden max-w-5xl mx-auto">
         <div className="absolute top-0 left-0 w-1/2 lg:w-1/3 h-full bg-white/15">
           <svg
             className="absolute top-0 right-0 h-full w-20"
@@ -26,9 +29,9 @@ const DownloadAppBanner = () => {
           </svg>
         </div>
 
-        <div className="flex flex-col md:flex-row-reverse items-center md:items-end justify-between relative z-10">
+        <div className="flex flex-col lg:flex-row-reverse items-center lg:items-end justify-between relative z-10">
           <motion.div
-            className="w-[90%] sm:w-[40%] overflow-hidden hidden md:block"
+            className="w-[90%] sm:w-[40%] overflow-hidden hidden lg:block"
             initial={{ opacity: 0, y: 50, scale: 1.2 }}
             whileInView={{
               opacity: 1,
@@ -46,7 +49,7 @@ const DownloadAppBanner = () => {
           </motion.div>
 
           <motion.div
-            className="p-6 flex flex-col items-center md:items-start text-center md:text-left gap-4"
+            className="p-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}

@@ -4,6 +4,7 @@ import logoImg from "../../../assets/images/logo.png";
 import { GoArrowRight } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import LanguageSwitcher from "../../common/LanguageSwitcher";
 
 const Header = () => {
   const [activeNav, setActiveNav] = useState(false);
@@ -35,7 +36,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 backdrop-blur-2xl duration-700 ${
+      className={`fixed w-full z-50 backdrop-blur-3xl duration-700 ${
         activeNav ? "shadow-lg lg:shadow-none" : ""
       }`}
       ref={headerRef}
@@ -83,13 +84,17 @@ const Header = () => {
           ))}
         </nav>
 
-        <Link
-          to="/join-us"
-          className="mainBtn"
-          onClick={(e) => handleNavClick(e, { path: "join-us" })}
-        >
-          Join Us <GoArrowRight />
-        </Link>
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
+
+          <Link
+            to="/join-us"
+            className="mainBtn py-2! px-4! text-sm!"
+            onClick={(e) => handleNavClick(e, { path: "join-us" })}
+          >
+            Join Us <GoArrowRight className="text-xl! rtl:rotate-180" />
+          </Link>
+        </div>
       </div>
     </header>
   );
