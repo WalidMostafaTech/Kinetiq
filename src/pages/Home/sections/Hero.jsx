@@ -1,5 +1,5 @@
 import heroImg from "../../../assets/images/doctor.png";
-import logoImg from "../../../assets/images/logo-final-(1)[1] 1.png";
+import logoImg from "../../../assets/images/logo-final.png";
 import { motion } from "framer-motion";
 import {
   textContainer,
@@ -89,7 +89,10 @@ const Hero = () => {
               animate="visible"
               className="flex items-center gap-3 lg:gap-4 mx-auto lg:mx-0 w-fit"
             >
-              <a href={hero?.link || "#"} className="mainBtn orange">
+              <a
+                href={hero?.link || "#download-app"}
+                className="mainBtn orange"
+              >
                 {hero?.button_text || "download now"}
               </a>
               <Link to={"/appointment"} className="mainBtn orange light">

@@ -2,6 +2,7 @@ import SectionTitle from "../../../components/common/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import { getAboutUsBoxes } from "../../../apiServices/home";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -18,9 +19,12 @@ const cardVariants = {
 };
 
 const AboutSkeleton = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="about-us" className="sectionPadding container">
-      <SectionTitle title="About Us" position="start" />
+      <SectionTitle title={t("about.sectionTitle")} position="start" />
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {Array.from({ length: 6 }).map((_, index) => (
           <div
@@ -40,6 +44,8 @@ const AboutSkeleton = () => {
 };
 
 const About = () => {
+  const { t } = useTranslation();
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["about-us-boxes"],
     queryFn: getAboutUsBoxes,
@@ -52,7 +58,7 @@ const About = () => {
 
   return (
     <section className="sectionPadding container scroll-smooth" id="about-us">
-      <SectionTitle title="About Us" position="start" />
+      <SectionTitle title={t("about.sectionTitle")} position="start" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {aboutList.map((item, index) => (
@@ -66,15 +72,16 @@ const About = () => {
             className="relative bg-myGreen-100 p-4 py-16 rounded-lg shadow-lg min-h-[230px] flex items-center justify-center group overflow-hidden"
           >
             <div
-              className="absolute top-5 left-5 text-4xl text-blue-950 font-bold 
-                after:content-[''] after:absolute after:top-1/2 after:left-0 
-                after:translate-x-1/3 after:-translate-y-1/2 
-                after:w-14 after:h-14 after:rounded-full after:bg-gray-500/20 after:z-0
-                group-hover:after:scale-2000 group-hover:after:bg-myOrange-200 after:duration-500"
+              className="absolute top-5 left-5 rtl:left-auto rtl:right-5 text-4xl text-blue-950 font-bold
+              after:content-[''] after:absolute after:top-1/2 after:left-0 rtl:after:right-0
+              after:translate-x-1/3 rtl:after:-translate-x-1/3 after:-translate-y-1/2
+              after:w-14 after:h-14 after:rounded-full after:bg-gray-500/20 after:z-0
+              group-hover:after:scale-2000 group-hover:after:bg-myOrange-200 after:duration-500"
             >
               <span className="relative z-10">0{index + 1}</span>
             </div>
 
+            {/* item.title جاي من API فمش محتاج ترجمة */}
             <p className="text-center group-hover:text-white relative z-10 duration-300">
               {item.title}
             </p>

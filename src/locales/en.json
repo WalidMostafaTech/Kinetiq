@@ -1,1 +1,160 @@
-{}
+{
+  "loading": "Loading ...",
+
+  "footer": {
+    "pages": "Pages",
+    "quickLinks": "Quick Links",
+
+    "home": "Home",
+    "about": "About us",
+    "contact": "Contact us",
+    "appointment": "Appointment",
+    "join": "Join us",
+
+    "headline": "Reliable service for better care",
+    "description": "Reliable physical therapy services anytime, anywhere.",
+
+    "rights": "Kinetiq © 2025 | All rights reserved.",
+
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  },
+
+  "header": {
+    "home": "Home",
+    "contact": "Contact Us",
+    "about": "About Us",
+    "join": "Join Us"
+  },
+
+  "appointment": {
+    "title": "Book An Appointment",
+
+    "name": "Name",
+    "mobile": "Mobile Number",
+    "email": "Email",
+    "region": "Region",
+
+    "namePlaceholder": "Enter your name",
+    "mobilePlaceholder": "Enter your mobile number",
+    "emailPlaceholder": "Enter your email",
+    "regionPlaceholder": "Enter your region",
+
+    "submit": "Book Appointment",
+    "submitting": "Booking...",
+
+    "success": "Your appointment has been booked successfully!",
+    "error": "Something went wrong. Please try again."
+  },
+
+  "join": {
+    "title": "Join Us",
+
+    "fullName": "Full Name",
+    "mobile": "Mobile Number",
+
+    "isGraduate": "Are you a graduate?",
+    "yes": "Yes",
+    "no": "No",
+
+    "graduationYear": "Graduation Year",
+    "graduationYearPlaceholder": "Enter graduation year",
+
+    "membershipCard": "Membership Card",
+    "graduationCertificate": "Graduation Certificate",
+    "upload": "Click to upload",
+
+    "submit": "Join Us",
+    "submitting": "Submitting...",
+
+    "success": "Your request has been sent successfully!",
+    "error": "Something went wrong. Please try again."
+  },
+
+  "testimonials": {
+    "title": "What patients say about Kinetiq"
+  },
+
+  "about": {
+    "sectionTitle": "About Us"
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We’re here to help. Send us a message and we’ll get back to you.",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "phone": "Enter your phone number",
+      "email": "Enter your email address",
+      "message": "Write your message..."
+    },
+    "buttons": {
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "messages": {
+      "success": "Your message has been sent successfully.",
+      "error": "Failed to send your message. Please try again."
+    }
+  },
+
+  "downloadApp": {
+    "title": "Download the Kinetiq App",
+    "description": "Easily book certified physical therapy home visits anytime, anywhere. Get personalized care from trusted therapists, track your recovery progress, and stay on top of your health—all from the comfort of your home.",
+    "stores": {
+      "appStore": "App Store",
+      "googlePlay": "Google Play",
+      "appGallery": "AppGallery"
+    },
+    "imageAlt": "Download App"
+  },
+
+  "homeBanner": {
+    "title": "Join Kinetiq doctors and get our services through the website and the mobile application.",
+    "button": "Join Now"
+  },
+
+  "howWeWork": {
+    "title": "Let’s See How We Work",
+    "subTitle": "Discover our process and how we help our clients achieve their goals."
+  },
+
+  "latestBlogs": {
+    "title": "Latest Blogs & Articles",
+    "viewDetails": "View Details",
+    "moreArticles": "More Articles"
+  },
+
+  "services": {
+    "title": "Find Out More About Our Services"
+  },
+
+  "whyChooseUs": {
+    "title": "Why Choose Us",
+    "items": [
+      {
+        "title": "Verified Doctors",
+        "paragraph": "All doctors are licensed and verified"
+      },
+      {
+        "title": "Quick Booking",
+        "paragraph": "Book appointments in under 60 seconds"
+      },
+      {
+        "title": "Patient Support",
+        "paragraph": "24/7 support for all your needs"
+      },
+      {
+        "title": "Quality Care",
+        "paragraph": "Top-rated healthcare professionals"
+      }
+    ]
+  }
+}

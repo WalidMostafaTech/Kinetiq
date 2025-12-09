@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
 import mobilesImg from "../../../assets/images/two-mobile.png";
 import appGalleryIcon from "../../../assets/images/App Gallery icon.png";
 import appleIcon from "../../../assets/images/Apple logo.png";
@@ -10,6 +12,8 @@ const fadeUp = {
 };
 
 const DownloadAppBanner = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       className="w-full p-4 bg-[#01ae9e] my-16 relative"
@@ -43,7 +47,7 @@ const DownloadAppBanner = () => {
           >
             <img
               src={mobilesImg}
-              alt="Download App"
+              alt={t("downloadApp.imageAlt")}
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -66,14 +70,11 @@ const DownloadAppBanner = () => {
               variants={fadeUp}
               className="text-3xl font-bold text-white"
             >
-              Download the Kinetiq App
+              {t("downloadApp.title")}
             </motion.h2>
 
-            <motion.p variants={fadeUp} className="text-white max-w-lg text-sm">
-              Easily book certified physical therapy home visits anytime,
-              anywhere. Get personalized care from trusted therapists, track
-              your recovery progress, and stay on top of your health—all from
-              the comfort of your home.
+            <motion.p variants={fadeUp} className="text-white max-w-lg text-sm text-start">
+              {t("downloadApp.description")}
             </motion.p>
 
             <motion.div
@@ -81,9 +82,18 @@ const DownloadAppBanner = () => {
               className="flex flex-wrap gap-4 w-full"
             >
               {[
-                { icon: appleIcon, label: "App Store" },
-                { icon: googleIcon, label: "Google Play" },
-                { icon: appGalleryIcon, label: "AppGallery" },
+                {
+                  icon: appleIcon,
+                  label: t("downloadApp.stores.appStore"),
+                },
+                {
+                  icon: googleIcon,
+                  label: t("downloadApp.stores.googlePlay"),
+                },
+                {
+                  icon: appGalleryIcon,
+                  label: t("downloadApp.stores.appGallery"),
+                },
               ].map((btn, i) => (
                 <a
                   key={i}

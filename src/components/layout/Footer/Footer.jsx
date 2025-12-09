@@ -2,24 +2,28 @@ import logoImg from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FiFacebook } from "react-icons/fi";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const Links1 = [
     {
-      title: "Pages",
+      title: t("footer.pages"),
       links: [
-        { name: "Home", url: "/" },
-        { name: "About us", url: "/about-us" },
-        { name: "Contact us", url: "/contact-us" },
+        { name: t("footer.home"), url: "/" },
+        { name: t("footer.about"), url: "/about-us" },
+        { name: t("footer.contact"), url: "/contact-us" },
       ],
     },
   ];
+
   const Links2 = [
     {
-      title: "Quick Links",
+      title: t("footer.quickLinks"),
       links: [
-        { name: "Appointment", url: "/appointment" },
-        { name: "join us", url: "/join-us" },
+        { name: t("footer.appointment"), url: "/appointment" },
+        { name: t("footer.join"), url: "/join-us" },
       ],
     },
   ];
@@ -68,9 +72,10 @@ const Footer = () => {
 
             <div className="max-w-sm">
               <h3 className="text-2xl font-semibold mb-2">
-                Reliable service for better care
+                {t("footer.headline")}
               </h3>
-              <p>Reliable physical therapy services anytime, anywhere.</p>
+
+              <p>{t("footer.description")}</p>
             </div>
 
             <div className="flex items-center gap-4">
@@ -117,19 +122,19 @@ const Footer = () => {
       </div>
 
       <div className="container text-center text-sm py-4 border-t border-gray-200 flex flex-col lg:flex-row items-center justify-between gap-4 relative">
-        <p>Kinetiq © 2025 | All rights reserved.</p>
+        <p>{t("footer.rights")}</p>
 
         <div>
           <a href="#" className="hover:text-myOrange-200 duration-200">
-            Privacy Policy
+            {t("footer.privacy")}
           </a>
           <span className="mx-2">|</span>
           <a href="#" className="hover:text-myOrange-200 duration-200">
-            Terms of Service
+            {t("footer.terms")}
           </a>
           <span className="mx-2">|</span>
           <a href="#" className="hover:text-myOrange-200 duration-200">
-            Cookie Policy
+            {t("footer.cookies")}
           </a>
         </div>
       </div>

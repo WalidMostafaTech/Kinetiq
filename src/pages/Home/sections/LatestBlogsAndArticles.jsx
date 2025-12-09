@@ -9,33 +9,38 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useTranslation } from "react-i18next";
 
-const BlogsSkeleton = () => (
-  <section className="sectionPadding container">
-    <SectionTitle title="Latest Blogs & Articles" />
-    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div
-          key={i}
-          className="bg-myYellow-200 shadow-xl rounded-xl overflow-hidden"
-        >
-          <div className="w-full h-48 bg-gray-200 animate-pulse" />
-          <div className="p-4 space-y-4">
-            <div className="flex items-center justify-between gap-4 pb-4 border-b border-gray-400">
-              <div className="h-5 w-32 bg-gray-200 rounded animate-pulse" />
-              <div className="h-5 w-28 bg-gray-200 rounded animate-pulse" />
+const BlogsSkeleton = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section className="sectionPadding container">
+      <SectionTitle title={t("latestBlogs.title")} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div
+            key={i}
+            className="bg-myYellow-200 shadow-xl rounded-xl overflow-hidden"
+          >
+            <div className="w-full h-48 bg-gray-200 animate-pulse" />
+            <div className="p-4 space-y-4">
+              <div className="flex items-center justify-between gap-4 pb-4 border-b border-gray-400">
+                <div className="h-5 w-32 bg-gray-200 rounded animate-pulse" />
+                <div className="h-5 w-28 bg-gray-200 rounded animate-pulse" />
+              </div>
+              <div className="h-7 bg-gray-200 rounded w-3/4 animate-pulse" />
+              <div className="h-4 bg-gray-200 rounded w-full animate-pulse" />
+              <div className="h-4 bg-gray-200 rounded w-5/6 animate-pulse" />
+              <div className="h-6 w-36 bg-gray-200 rounded animate-pulse" />
             </div>
-            <div className="h-7 bg-gray-200 rounded w-3/4 animate-pulse" />
-            <div className="h-4 bg-gray-200 rounded w-full animate-pulse" />
-            <div className="h-4 bg-gray-200 rounded w-5/6 animate-pulse" />
-            <div className="h-6 w-36 bg-gray-200 rounded animate-pulse" />
           </div>
-        </div>
-      ))}
-    </div>
-    <div className="h-10 w-40 bg-gray-200 rounded mx-auto mt-8 animate-pulse" />
-  </section>
-);
+        ))}
+      </div>
+      <div className="h-10 w-40 bg-gray-200 rounded mx-auto mt-8 animate-pulse" />
+    </section>
+  );
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -47,6 +52,7 @@ const cardVariants = {
 };
 
 const LatestBlogsAndArticles = () => {
+  const { t } = useTranslation();
   const { data, isLoading, isError } = useQuery({
     queryKey: ["blogs"],
     queryFn: getBlogs,
@@ -59,7 +65,7 @@ const LatestBlogsAndArticles = () => {
 
   return (
     <section className="sectionPadding container">
-      <SectionTitle title="Latest Blogs & Articles" />
+      <SectionTitle title={t("latestBlogs.title")} />
 
       <motion.div
         initial="hidden"
@@ -113,8 +119,8 @@ const LatestBlogsAndArticles = () => {
                   </p>
 
                   <button className="text-myGreen-200 font-semibold flex items-center gap-1 cursor-pointer group text-sm">
-                    View Details{" "}
-                    <GoArrowRight className="text-xl group-hover:translate-x-2 duration-300" />
+                    {t("latestBlogs.viewDetails")}{" "}
+                    <GoArrowRight className="text-xl group-hover:translate-x-2 duration-300 rtl:rotate-180 rtl:group-hover:-translate-x-2" />
                   </button>
                 </div>
               </div>
@@ -123,7 +129,9 @@ const LatestBlogsAndArticles = () => {
         </Swiper>
       </motion.div>
 
-      <button className="mainBtn mt-8 mx-auto block">More Articles</button>
+      <button className="mainBtn mt-8 mx-auto block">
+        {t("latestBlogs.moreArticles")}
+      </button>
     </section>
   );
 };

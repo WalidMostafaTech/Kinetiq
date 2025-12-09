@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionTitle from "../../../components/common/SectionTitle";
 import { postContactUs } from "../../../apiServices/home";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,12 +10,15 @@ const fadeUp = {
 };
 
 const ContactUs = () => {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
     message: "",
   });
+
   const [submitting, setSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -31,10 +35,10 @@ const ContactUs = () => {
     setSubmitting(true);
     try {
       await postContactUs(form);
-      setSuccessMsg("Your message has been sent successfully.");
+      setSuccessMsg(t("contact.messages.success"));
       setForm({ name: "", phone: "", email: "", message: "" });
-    } catch (err) {
-      setErrorMsg("Failed to send your message. Please try again.");
+    } catch {
+      setErrorMsg(t("contact.messages.error"));
     } finally {
       setSubmitting(false);
     }
@@ -50,8 +54,8 @@ const ContactUs = () => {
       variants={fadeUp}
     >
       <SectionTitle
-        title="Contact Us"
-        subTitle="We’re here to help. Send us a message and we’ll get back to you."
+        title={t("contact.title")}
+        subTitle={t("contact.subtitle")}
       />
 
       <motion.div
@@ -67,7 +71,7 @@ const ContactUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col text-start">
               <label htmlFor="name" className="mb-1 font-medium">
-                Name
+                {t("contact.fields.name")}
               </label>
               <input
                 id="name"
@@ -75,7 +79,7 @@ const ContactUs = () => {
                 type="text"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Enter your name"
+                placeholder={t("contact.placeholders.name")}
                 className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
                 required
               />
@@ -83,7 +87,7 @@ const ContactUs = () => {
 
             <div className="flex flex-col text-start">
               <label htmlFor="phone" className="mb-1 font-medium">
-                Phone
+                {t("contact.fields.phone")}
               </label>
               <input
                 id="phone"
@@ -91,7 +95,7 @@ const ContactUs = () => {
                 type="tel"
                 value={form.phone}
                 onChange={handleChange}
-                placeholder="Enter your phone number"
+                placeholder={t("contact.placeholders.phone")}
                 className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
                 required
               />
@@ -99,7 +103,7 @@ const ContactUs = () => {
 
             <div className="flex flex-col text-start md:col-span-2">
               <label htmlFor="email" className="mb-1 font-medium">
-                Email
+                {t("contact.fields.email")}
               </label>
               <input
                 id="email"
@@ -107,7 +111,7 @@ const ContactUs = () => {
                 type="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="Enter your email address"
+                placeholder={t("contact.placeholders.email")}
                 className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
                 required
               />
@@ -116,7 +120,7 @@ const ContactUs = () => {
 
           <div className="flex flex-col text-start">
             <label htmlFor="message" className="mb-1 font-medium">
-              Message
+              {t("contact.fields.message")}
             </label>
             <textarea
               id="message"
@@ -124,7 +128,7 @@ const ContactUs = () => {
               rows={5}
               value={form.message}
               onChange={handleChange}
-              placeholder="Write your message..."
+              placeholder={t("contact.placeholders.message")}
               className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white resize-y"
               required
             />
@@ -135,6 +139,7 @@ const ContactUs = () => {
               {successMsg}
             </div>
           )}
+
           {errorMsg && (
             <div className="mb-4 rounded-md bg-red-100 text-red-800 px-4 py-3 text-start">
               {errorMsg}
@@ -143,7 +148,9 @@ const ContactUs = () => {
 
           <div className="text-center">
             <button type="submit" className="mainBtn" disabled={submitting}>
-              {submitting ? "Sending..." : "Send Message"}
+              {submitting
+                ? t("contact.buttons.sending")
+                : t("contact.buttons.send")}
             </button>
           </div>
         </form>

@@ -5,6 +5,7 @@ import { GoArrowRight } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import LanguageSwitcher from "../../common/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [activeNav, setActiveNav] = useState(false);
@@ -12,10 +13,12 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   const linksList = [
-    { name: "Home", path: "#Home" },
-    { name: "Contact Us", path: "#contact-us" },
-    { name: "About Us", path: "#about-us" },
+    { name: t("header.home"), path: "#Home" },
+    { name: t("header.contact"), path: "#contact-us" },
+    { name: t("header.about"), path: "#about-us" },
   ];
 
   const handleNavClick = (e, link) => {
@@ -92,7 +95,8 @@ const Header = () => {
             className="mainBtn py-2! px-4! text-sm!"
             onClick={(e) => handleNavClick(e, { path: "join-us" })}
           >
-            Join Us <GoArrowRight className="text-xl! rtl:rotate-180" />
+            {t("header.join")}{" "}
+            <GoArrowRight className="text-xl! rtl:rotate-180" />
           </Link>
         </div>
       </div>

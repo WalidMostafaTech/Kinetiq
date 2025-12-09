@@ -3,6 +3,7 @@ import SectionTitle from "../../../components/common/SectionTitle";
 import LoadingPage from "../../../components/Loading/LoadingPage";
 import { useQuery } from "@tanstack/react-query";
 import { getFeatures } from "../../../apiServices/home";
+import { useTranslation } from "react-i18next";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.9 },
@@ -19,6 +20,7 @@ const cardVariants = {
 };
 
 const Services = () => {
+  const { t } = useTranslation();
   const { data, isLoading, isError } = useQuery({
     queryKey: ["features"],
     queryFn: getFeatures,
@@ -31,7 +33,7 @@ const Services = () => {
 
   return (
     <section className="sectionPadding container">
-      <SectionTitle title="Find Out More About Our Services" />
+      <SectionTitle title={t("services.title")} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {servicesList.map((item, index) => (

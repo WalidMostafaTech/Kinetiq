@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import img from "../../../assets/images/bg.jpg";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const MotionLink = motion(Link);
 
 const HomeBanner = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -25,8 +28,7 @@ const HomeBanner = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-white text-2xl md:text-4xl font-bold text-start md:text-center max-w-4xl leading-relaxed pt-40"
         >
-          Join Kinetiq doctors and get our services through the website and
-          the mobile application.
+          {t("homeBanner.title")}
         </motion.h2>
 
         {/* BUTTON */}
@@ -38,7 +40,7 @@ const HomeBanner = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="bg-myOrange-200 text-white text-2xl min-w-[200px] text-center font-bold py-2 px-4 rounded-lg"
         >
-          Join Now
+          {t("homeBanner.button")}
         </MotionLink>
       </div>
     </motion.section>

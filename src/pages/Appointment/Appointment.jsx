@@ -3,8 +3,11 @@ import SectionTitle from "../../components/common/SectionTitle";
 import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { postJoinRequest } from "../../apiServices/home";
+import { useTranslation } from "react-i18next";
 
 const Appointment = () => {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     name: "",
     mobile: "",
@@ -22,7 +25,7 @@ const Appointment = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: postJoinRequest,
     onSuccess: () => {
-      setSuccessMsg("Your appointment has been booked successfully!");
+      setSuccessMsg(t("appointment.success"));
       setErrorMsg("");
       setForm({
         name: "",
@@ -33,7 +36,7 @@ const Appointment = () => {
     },
     onError: () => {
       setSuccessMsg("");
-      setErrorMsg("Something went wrong. Please try again.");
+      setErrorMsg(t("appointment.error"));
     },
   });
 
@@ -44,7 +47,7 @@ const Appointment = () => {
 
   return (
     <section className="w-full max-w-4xl mx-auto pagePadding p-4">
-      <SectionTitle title="Book An Appointment" />
+      <SectionTitle title={t("appointment.title")} />
 
       <motion.form
         initial={{ opacity: 0, y: 50 }}
@@ -58,7 +61,7 @@ const Appointment = () => {
           {/* Name */}
           <div className="flex flex-col text-start">
             <label htmlFor="name" className="mb-1 font-medium">
-              Name
+              {t("appointment.name")}
             </label>
             <input
               id="name"
@@ -66,7 +69,7 @@ const Appointment = () => {
               type="text"
               value={form.name}
               onChange={handleChange}
-              placeholder="Enter your name"
+              placeholder={t("appointment.namePlaceholder")}
               className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
               required
             />
@@ -75,7 +78,7 @@ const Appointment = () => {
           {/* mobile */}
           <div className="flex flex-col text-start">
             <label htmlFor="mobile" className="mb-1 font-medium">
-              Mobile Number
+              {t("appointment.mobile")}
             </label>
             <input
               id="mobile"
@@ -83,7 +86,7 @@ const Appointment = () => {
               type="number"
               value={form.mobile}
               onChange={handleChange}
-              placeholder="Enter your mobile number"
+              placeholder={t("appointment.mobilePlaceholder")}
               className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
               required
             />
@@ -92,7 +95,7 @@ const Appointment = () => {
           {/* Email */}
           <div className="flex flex-col text-start">
             <label htmlFor="email" className="mb-1 font-medium">
-              Email
+              {t("appointment.email")}
             </label>
             <input
               id="email"
@@ -100,7 +103,7 @@ const Appointment = () => {
               type="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder={t("appointment.emailPlaceholder")}
               className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
             />
           </div>
@@ -108,7 +111,7 @@ const Appointment = () => {
           {/* region */}
           <div className="flex flex-col text-start">
             <label htmlFor="region" className="mb-1 font-medium">
-              Region
+              {t("appointment.region")}
             </label>
             <input
               id="region"
@@ -116,7 +119,7 @@ const Appointment = () => {
               type="text"
               value={form.region}
               onChange={handleChange}
-              placeholder="Enter your region"
+              placeholder={t("appointment.regionPlaceholder")}
               className="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-myGreen-200 bg-white"
               required
             />
@@ -125,7 +128,7 @@ const Appointment = () => {
 
         <div className="text-center">
           <button type="submit" className="mainBtn" disabled={isPending}>
-            {isPending ? "Booking..." : "Book Appointment"}
+            {isPending ? t("appointment.submitting") : t("appointment.submit")}
           </button>
         </div>
 

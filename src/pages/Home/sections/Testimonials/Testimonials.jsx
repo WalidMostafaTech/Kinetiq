@@ -50,10 +50,10 @@ const Testimonials = () => {
 
           <motion.div variants={fade} className="flex gap-3 mx-auto w-max mt-4">
             <button className="prevBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white bg-myGreen-200 rounded-full shadow hover:brightness-90">
-              <IoIosArrowBack />
+              <IoIosArrowBack className="rtl:rotate-180" />
             </button>
             <button className="nextBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white bg-myGreen-200 rounded-full shadow hover:brightness-90">
-              <IoIosArrowForward />
+              <IoIosArrowForward className="rtl:rotate-180" />
             </button>
           </motion.div>
         </motion.div>

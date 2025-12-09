@@ -2,10 +2,14 @@ import SectionTitle from "../../../components/common/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import { getHowWeWork } from "../../../apiServices/home";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
 const HowWeWorkSkeleton = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="sectionPadding container">
-      <SectionTitle title="Let’s See How We Work" />
+      <SectionTitle title={t("howWeWork.title")} />
       <div className="h-5 w-3/4 md:w-2/3 lg:w-1/2 bg-gray-200 rounded animate-pulse mt-2 mb-6" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {Array.from({ length: 3 }).map((_, i) => (
@@ -46,6 +50,8 @@ const cardVariants = {
 };
 
 const HowWeWork = () => {
+  const { t } = useTranslation();
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["how-we-work"],
     queryFn: getHowWeWork,
@@ -54,12 +60,12 @@ const HowWeWork = () => {
   if (isLoading) return <HowWeWorkSkeleton />;
   if (isError) return null;
 
-  const subTitle = data?.main_title;
+  const subTitle = data?.main_title || t("howWeWork.subTitle");
   const items = data?.work_processes || [];
 
   return (
     <section className="sectionPadding container">
-      <SectionTitle title="Let’s See How We Work" subTitle={subTitle} />
+      <SectionTitle title={t("howWeWork.title")} subTitle={subTitle} />
 
       <motion.div
         variants={containerVariants}
