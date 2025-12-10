@@ -19,7 +19,7 @@ const DownloadAppBanner = () => {
       className="w-full p-4 bg-[#01ae9e] my-16 relative"
       id="download-app"
     >
-      <div className="bg-[#01ae9e] rounded-lg overflow-hidden max-w-5xl mx-auto">
+      <div className="bg-[#01ae9e] rounded-lg max-w-5xl mx-auto">
         <div className="absolute top-0 left-0 w-1/2 lg:w-1/3 h-full bg-white/15">
           <svg
             className="absolute top-0 right-0 h-full w-20"
@@ -33,9 +33,9 @@ const DownloadAppBanner = () => {
           </svg>
         </div>
 
-        <div className="flex flex-col lg:flex-row-reverse items-center lg:items-end justify-between relative z-10">
+        <div className="flex justify-center lg:justify-start relative z-10">
           <motion.div
-            className="w-[90%] sm:w-[40%] overflow-hidden hidden lg:block"
+            className="w-[500px] hidden lg:block absolute top-1/2 -end-10 xl:-end-40 -translate-y-1/2"
             initial={{ opacity: 0, y: 50, scale: 1.2 }}
             whileInView={{
               opacity: 1,
@@ -48,7 +48,7 @@ const DownloadAppBanner = () => {
             <img
               src={mobilesImg}
               alt={t("downloadApp.imageAlt")}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover drop-shadow-xl"
             />
           </motion.div>
 
@@ -73,7 +73,10 @@ const DownloadAppBanner = () => {
               {t("downloadApp.title")}
             </motion.h2>
 
-            <motion.p variants={fadeUp} className="text-white max-w-lg text-sm text-start">
+            <motion.p
+              variants={fadeUp}
+              className="text-white max-w-lg text-sm text-start"
+            >
               {t("downloadApp.description")}
             </motion.p>
 
