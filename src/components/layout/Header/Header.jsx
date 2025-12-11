@@ -17,8 +17,8 @@ const Header = () => {
 
   const linksList = [
     { name: t("header.home"), path: "#Home" },
-    { name: t("header.contact"), path: "#contact-us" },
     { name: t("header.about"), path: "#about-us" },
+    { name: t("header.contact"), path: "#contact-us" },
   ];
 
   const handleNavClick = (e, link) => {

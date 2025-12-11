@@ -57,8 +57,8 @@ const WhyChooseUs = () => {
         >
           {items.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="p-4 flex flex-col items-center gap-4 text-center">
-                <div className="flex items-center justify-center p-4 rounded-full bg-myGreen-200 shadow-md">
+              <div className="p-4 flex flex-col items-center gap-4 text-center group">
+                <div className="flex items-center justify-center p-4 rounded-full bg-myGreen-200 shadow-md group-hover:scale-120 duration-300">
                   <span className="text-3xl text-white">{icons[index]}</span>
                 </div>
                 <h3 className="text-xl font-semibold">{item.title}</h3>
