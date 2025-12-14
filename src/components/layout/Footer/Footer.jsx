@@ -125,17 +125,17 @@ const Footer = () => {
         <p>{t("footer.rights")}</p>
 
         <div>
-          <a href="#" className="hover:text-myOrange-200 duration-200">
+          <Link to="/" className="hover:text-myOrange-200 duration-200">
             {t("footer.privacy")}
-          </a>
+          </Link>
           <span className="mx-2">|</span>
-          <a href="#" className="hover:text-myOrange-200 duration-200">
+          <Link to="/" className="hover:text-myOrange-200 duration-200">
             {t("footer.terms")}
-          </a>
+          </Link>
           <span className="mx-2">|</span>
-          <a href="#" className="hover:text-myOrange-200 duration-200">
+          <Link to="/" className="hover:text-myOrange-200 duration-200">
             {t("footer.cookies")}
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

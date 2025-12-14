@@ -91,11 +91,13 @@ const LatestBlogsAndArticles = () => {
                 custom={index}
                 className="bg-myYellow-200 shadow-xl overflow-hidden rounded-xl"
               >
-                <img
-                  src={item.main_image_url}
-                  alt={item.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
+                <div className="w-full h-64 overflow-hidden">
+                  <img
+                    src={item.main_image_url}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
 
                 <div className="p-4 space-y-2">
                   <div className="flex items-center justify-between gap-4 pb-4 border-b border-gray-400">

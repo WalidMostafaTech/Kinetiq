@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const icons = [
   <LuShield />,
@@ -27,12 +28,11 @@ const cardVariants = {
 
 const WhyChooseUs = () => {
   const { t } = useTranslation();
+    const { lang } = useSelector((state) => state.language);
+
 
   // مهم جدًا returnObjects: true علشان ترجع مصفوفة مش نص
   const items = t("whyChooseUs.items", { returnObjects: true });
-
-  console.log(items);
-
 
   return (
     <section className="sectionPadding container">
@@ -45,6 +45,7 @@ const WhyChooseUs = () => {
         variants={cardVariants}
       >
         <Swiper
+          dir={lang === "ar" ? "rtl" : "ltr"}
           modules={[Autoplay]}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           spaceBetween={20}

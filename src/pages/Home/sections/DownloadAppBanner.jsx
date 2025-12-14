@@ -33,9 +33,9 @@ const DownloadAppBanner = () => {
           </svg>
         </div>
 
-        <div className="flex justify-center lg:justify-start relative z-10">
+        <div className="flex justify-center lg:justify-start relative z-10 ">
           <motion.div
-            className="w-[500px] hidden lg:block absolute top-1/2 -end-10 xl:-end-40 -translate-y-1/2"
+            className="w-[300px] hidden lg:block absolute top-1/2 end-0 -translate-y-1/2"
             initial={{ opacity: 0, y: 50, scale: 1.2 }}
             whileInView={{
               opacity: 1,

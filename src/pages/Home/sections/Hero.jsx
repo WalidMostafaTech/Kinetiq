@@ -75,7 +75,7 @@ const Hero = () => {
                 {hero?.title || "YOUR PATH TO RECOVERY"}
               </h1>
               <div className="flex gap-2 items-start lg:items-center">
-                <span className="bg-myStone-200 w-26 lg:w-40 h-0.5 mt-4" />
+                {/* <span className="bg-myStone-200 w-26 lg:w-40 h-0.5 mt-4" /> */}
                 <p>
                   {hero?.description ||
                     "Physical therapy is a way of life… with a touch of everyday care."}

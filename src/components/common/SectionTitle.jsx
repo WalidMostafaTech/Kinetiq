@@ -7,7 +7,7 @@ const SectionTitle = ({ title, subTitle, position = "center" }) => {
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className={`mb-4 lg:mb-10 ${
+      className={`mb-6 lg:mb-10 ${
         position === "start" ? "lg:text-start" : "text-center"
       }`}
     >

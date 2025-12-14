@@ -9,6 +9,8 @@ import LoadingPage from "../../../../components/Loading/LoadingPage";
 import { useQuery } from "@tanstack/react-query";
 import { getTestimonials } from "../../../../apiServices/home";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -25,10 +27,14 @@ const fade = {
 };
 
 const Testimonials = () => {
+  const { lang } = useSelector((state) => state.language);
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["testimonials"],
     queryFn: getTestimonials,
   });
+
+  const { t } = useTranslation();
 
   if (isLoading) return <LoadingPage />;
   if (isError) return null;
@@ -46,13 +52,19 @@ const Testimonials = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="content-center"
         >
-          <SectionTitle title="What patients say about Kinetiq" />
+          <SectionTitle title={t("testimonials.title")} />
 
           <motion.div variants={fade} className="flex gap-3 mx-auto w-max mt-4">
-            <button className="prevBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white bg-myGreen-200 rounded-full shadow hover:brightness-90">
+            <button
+              className="prevBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white duration-200
+            bg-myGreen-200 rounded-full shadow hover:brightness-90 disabled:hover:brightness-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
               <IoIosArrowBack className="rtl:rotate-180" />
             </button>
-            <button className="nextBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white bg-myGreen-200 rounded-full shadow hover:brightness-90">
+            <button
+              className="nextBtn text-2xl w-10 h-10 cursor-pointer flex items-center justify-center text-white duration-200
+            bg-myGreen-200 rounded-full shadow hover:brightness-90 disabled:hover:brightness-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
               <IoIosArrowForward className="rtl:rotate-180" />
             </button>
           </motion.div>
@@ -67,6 +79,7 @@ const Testimonials = () => {
           className="lg:col-span-2"
         >
           <Swiper
+            dir={lang === "ar" ? "rtl" : "ltr"}
             modules={[Navigation]}
             navigation={{
               prevEl: ".prevBtn",
