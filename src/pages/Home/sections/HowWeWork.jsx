@@ -58,7 +58,7 @@ const HowWeWork = () => {
   });
 
   if (isLoading) return <HowWeWorkSkeleton />;
-  if (isError) return null;
+  if (isError || !data || !data.length) return null;
 
   const subTitle = data?.main_title || t("howWeWork.subTitle");
   const items = data?.work_processes || [];

@@ -52,7 +52,7 @@ const About = () => {
   });
 
   if (isLoading) return <AboutSkeleton />;
-  if (isError) return null;
+  if (isError || !data || !data.length) return null;
 
   const aboutList = Array.isArray(data) ? data : [];
 

@@ -28,8 +28,7 @@ const cardVariants = {
 
 const WhyChooseUs = () => {
   const { t } = useTranslation();
-    const { lang } = useSelector((state) => state.language);
-
+  const { lang } = useSelector((state) => state.language);
 
   // مهم جدًا returnObjects: true علشان ترجع مصفوفة مش نص
   const items = t("whyChooseUs.items", { returnObjects: true });

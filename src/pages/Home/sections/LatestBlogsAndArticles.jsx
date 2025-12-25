@@ -59,7 +59,7 @@ const LatestBlogsAndArticles = () => {
   });
 
   if (isLoading) return <BlogsSkeleton />;
-  if (isError) return null;
+  if (isError || !data || !data.length) return null;
 
   const blogs = Array.isArray(data) ? data : [];
 

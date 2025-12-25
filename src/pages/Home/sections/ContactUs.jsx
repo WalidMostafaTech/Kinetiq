@@ -92,7 +92,7 @@ const ContactUs = () => {
               <input
                 id="phone"
                 name="phone"
-                type="tel"
+                type="number"
                 value={form.phone}
                 onChange={handleChange}
                 placeholder={t("contact.placeholders.phone")}
@@ -135,13 +135,13 @@ const ContactUs = () => {
           </div>
 
           {successMsg && (
-            <div className="mb-4 rounded-md bg-green-100 text-green-800 px-4 py-3 text-start">
+            <div className="mb-4 rounded-md bg-green-100 text-green-800 px-4 py-3 text-center border">
               {successMsg}
             </div>
           )}
 
           {errorMsg && (
-            <div className="mb-4 rounded-md bg-red-100 text-red-800 px-4 py-3 text-start">
+            <div className="mb-4 rounded-md bg-red-100 text-red-800 px-4 py-3 text-center border">
               {errorMsg}
             </div>
           )}

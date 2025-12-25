@@ -133,13 +133,13 @@ const Appointment = () => {
         </div>
 
         {successMsg && (
-          <div className="rounded-md bg-green-100 text-green-800 px-4 py-3 text-start">
+          <div className="rounded-md bg-green-100 text-green-800 px-4 py-3 text-center border">
             {successMsg}
           </div>
         )}
 
         {errorMsg && (
-          <div className="rounded-md bg-red-100 text-red-800 px-4 py-3 text-start">
+          <div className="rounded-md bg-red-100 text-red-800 px-4 py-3 text-center border">
             {errorMsg}
           </div>
         )}

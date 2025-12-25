@@ -46,6 +46,7 @@ const Hero = () => {
     queryFn: getWebBanners,
   });
 
+  if (isError || !data || !data.length) return null;
   const hero = Array.isArray(data) ? data[0] : null;
 
   return (

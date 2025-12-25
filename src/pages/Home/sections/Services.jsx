@@ -27,7 +27,7 @@ const Services = () => {
   });
 
   if (isLoading) return <LoadingPage />;
-  if (isError) return null;
+  if (isError || !data || !data.length) return null;
 
   const servicesList = Array.isArray(data) ? data : [];
 

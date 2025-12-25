@@ -44,6 +44,8 @@ const HeroServices = () => {
     return <HeroServicesSkeleton />;
   }
 
+  if (isError || !data || !data.length) return null;
+
   return (
     <section className="bg-myGreen-200">
       <div className="container p-4 lg:py-8 flex flex-col xl:flex-row-reverse items-start justify-between gap-4 xl:gap-20">

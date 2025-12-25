@@ -37,10 +37,9 @@ const Testimonials = () => {
   const { t } = useTranslation();
 
   if (isLoading) return <LoadingPage />;
-  if (isError) return null;
+  if (isError || !data || !data.length) return null;
 
   const testimonials = Array.isArray(data) ? data : [];
-
   return (
     <section className="bg-myGreen-100 py-12 my-8 Testimonials">
       <div className="container grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 overflow-hidden">

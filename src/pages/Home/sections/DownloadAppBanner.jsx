@@ -36,7 +36,7 @@ const DownloadAppBanner = () => {
         <div className="flex justify-center lg:justify-start relative z-10 ">
           <motion.div
             className="w-[300px] hidden lg:block absolute top-1/2 end-0 -translate-y-1/2"
-            initial={{ opacity: 0, y: 50, scale: 1.2 }}
+            initial={{ opacity: 0, y: 50, scale: 1.1 }}
             whileInView={{
               opacity: 1,
               y: 0,

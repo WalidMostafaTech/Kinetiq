@@ -87,3 +87,10 @@
 .custom-swiper .swiper-button-prev {
   color: var(--color-myGreen-200);
 }
+
+/* remove arrow in number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
